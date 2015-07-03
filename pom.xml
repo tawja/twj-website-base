@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 	
     <parent>
-        <groupId>org.tawja.website</groupId>
+        <groupId>org.tawja</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <!--<relativePath>../pom.xml</relativePath>-->
@@ -23,6 +23,14 @@
         <tawja.project.webdir>base</tawja.project.webdir>
     </properties>
 	
+    <distributionManagement>
+        <site>
+            <id>tawja-website</id>
+            <name>Tawja Documentation Website</name>
+            <url>${tawja.deploy.site.protocol}://${tawja.deploy.site.host}${tawja.deploy.webPath}/${tawja.deploy.envName}/${organization.domain}/project/platform/website/twj-website-base</url>
+        </site>
+    </distributionManagement>
+
     <profiles>
         <profile>
             <activation>
@@ -108,6 +116,67 @@
     </profiles>
     
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>copy-resources</id>
+                            <!-- Needs to be after grunt create-resources task so that maven-properties.json exists -->
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${basedir}/target-grunt/config</outputDirectory>
+                                <resources>          
+                                    <resource>
+                                        <directory>${basedir}/target-grunt</directory>
+                                        <includes>
+                                            <include>maven-properties.json</include>
+                                        </includes>
+                                        <filtering>true</filtering>
+                                    </resource>
+                                </resources>              
+                            </configuration>            
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.tawja.maven.plugins</groupId>
+                    <artifactId>twj-frontend-maven-plugin</artifactId>
+                    <version>1.0.0-SNAPSHOT</version>
+                    <executions>
+                        <execution>
+                            <id>create-resources</id>
+                            <phase>generate-resources</phase>
+                            <goals>
+                                <goal>create-resources</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>compile</id>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>npm-offline</goal>
+                                <goal>bower-offline</goal>
+                                <goal>grunt</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>clean</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -283,6 +352,33 @@
         </plugins>
     </build>
 	
+    <repositories>
+        <!-- Tawja Snapshots Repository -->
+        <repository> 
+            <id>twj-snapshots-repository</id> 
+            <name>Tawja Snapshots Repository</name>
+            <url>http://www.tawja.org/repo/maven/snapshots</url> 
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!-- Tawja Releases Repository -->
+        <repository> 
+            <id>twj-releases-repository</id> 
+            <name>Tawja Releases Repository</name>
+            <url>http://www.tawja.org/repo/maven/releases</url> 
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.tawja.design</groupId>
