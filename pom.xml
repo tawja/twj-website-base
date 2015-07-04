@@ -23,7 +23,7 @@
         <tawja.project.webdir>base</tawja.project.webdir>
         <!-- Environment name with tawja-env-* profiles -->
         <tawja.deploy.envName>test</tawja.deploy.envName>
-        <tawja.repo.envName>www</tawja.repo.envName>
+        <tawja.repo.envName>prod</tawja.repo.envName>
     </properties>
 	
     <distributionManagement>
