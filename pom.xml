@@ -12,7 +12,7 @@
 	
     <groupId>org.tawja.website</groupId>
     <artifactId>twj-website-base</artifactId>
-    <version>2015.07.04041656</version>
+    <version>2015.07.04111729</version>
 	
     <packaging>war</packaging>
 
