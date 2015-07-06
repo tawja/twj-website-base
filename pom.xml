@@ -24,6 +24,8 @@
         <!-- Environment name with tawja-env-* profiles -->
         <tawja.deploy.envName>test</tawja.deploy.envName>
         <tawja.repo.envName>prod</tawja.repo.envName>
+        <!-- Inner Dependencies Versions -->
+        <twj-maven-utils.version>1.0.0-SNAPSHOT</twj-maven-utils.version>
     </properties>
 	
     <distributionManagement>
@@ -336,7 +338,7 @@
                     <dependency>
                         <groupId>org.tawja.maven</groupId>
                         <artifactId>twj-maven-utils</artifactId>
-                        <version>1.0.0-SNAPSHOT</version>
+                        <version>${twj-maven-utils.version}</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -444,7 +446,13 @@
         </pluginRepository>
      </pluginRepositories>
 
-    <dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.tawja.maven</groupId>
+                <artifactId>twj-maven-utils</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.tawja.design</groupId>
             <artifactId>twj-design-icons</artifactId>
