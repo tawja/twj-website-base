@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.tawja</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>2015.07.07021816</version>
         <!--<relativePath>../pom.xml</relativePath>-->
     </parent>
 	
     <groupId>org.tawja.website</groupId>
     <artifactId>twj-website-base</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2015.07.07033613</version>
 	
     <packaging>war</packaging>
 
@@ -22,7 +22,7 @@
         <tawja.project.webcontext>base</tawja.project.webcontext>
         <tawja.project.webdir>base</tawja.project.webdir>
         <!-- Inner Dependencies Versions -->
-        <twj-maven-utils.version>1.0.0-SNAPSHOT</twj-maven-utils.version>
+        <twj-maven-utils.version>2015.07.07021816</twj-maven-utils.version>
     </properties>
 	
     <distributionManagement>
