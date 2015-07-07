@@ -25,21 +25,6 @@
         <twj-maven-utils.version>1.0.0-SNAPSHOT</twj-maven-utils.version>
     </properties>
 	
-    <profiles>
-        <!-- Environment to sub-domains -->
-        <profile>
-            <id>tawja-env</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-				<!-- Environment name with tawja-env-* profiles -->
-				<tawja.deploy.envName>test</tawja.deploy.envName>
-				<tawja.repo.envName>prod</tawja.repo.envName>
-            </properties>
-		</profile>
-	</profiles>
-	
     <distributionManagement>
         <site>
             <id>tawja-website</id>
@@ -61,6 +46,18 @@
     </distributionManagement>
 
     <profiles>
+        <!-- Environment to sub-domains -->
+        <profile>
+            <id>tawja-env</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Environment name with tawja-env-* profiles -->
+                <tawja.deploy.envName>test</tawja.deploy.envName>
+                <tawja.repo.envName>prod</tawja.repo.envName>
+            </properties>
+        </profile>
         <profile>
             <activation>
                 <os>
@@ -456,7 +453,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </pluginRepository>
-     </pluginRepositories>
+    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -464,35 +461,36 @@
                 <groupId>org.tawja.maven</groupId>
                 <artifactId>twj-maven-utils</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.tawja.design</groupId>
-            <artifactId>twj-design-icons</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <type>zip</type>
-            <classifier>twj-design</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.tawja.design</groupId>
-            <artifactId>twj-design-logos</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <type>zip</type>
-            <classifier>twj-design</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.tawja.design</groupId>
-            <artifactId>twj-design-pictures</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <type>zip</type>
-            <classifier>twj-design</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.tawja.design</groupId>
-            <artifactId>twj-design-schemas</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <type>zip</type>
-            <classifier>twj-design</classifier>
-        </dependency>
-    </dependencies>
+            </dependency>
+            <dependency>
+                <groupId>org.tawja.design</groupId>
+                <artifactId>twj-design-icons</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <type>zip</type>
+                <classifier>twj-design</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.tawja.design</groupId>
+                <artifactId>twj-design-logos</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <type>zip</type>
+                <classifier>twj-design</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.tawja.design</groupId>
+                <artifactId>twj-design-pictures</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <type>zip</type>
+                <classifier>twj-design</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.tawja.design</groupId>
+                <artifactId>twj-design-schemas</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <type>zip</type>
+                <classifier>twj-design</classifier>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
