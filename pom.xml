@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.tawja</groupId>
         <artifactId>parent</artifactId>
-        <version>2015.07.07125135</version>
+        <version>2015.07.08183918</version>
         <!--<relativePath>../pom.xml</relativePath>-->
     </parent>
 	
     <groupId>org.tawja.website</groupId>
     <artifactId>twj-website-base</artifactId>
-    <version>2015.07.08181734</version>
+    <version>2015.07.08192415</version>
 	
     <packaging>war</packaging>
 
@@ -22,14 +22,14 @@
         <tawja.project.webcontext>base</tawja.project.webcontext>
         <tawja.project.webdir>base</tawja.project.webdir>
         <!-- Inner Dependencies Versions -->
-        <twj-maven-utils.version>2015.07.07125135</twj-maven-utils.version>
+        <twj-maven-utils.version>2015.07.08183918</twj-maven-utils.version>
     </properties>
 	
     <distributionManagement>
         <site>
             <id>tawja-website</id>
             <name>Tawja Documentation Website</name>
-            <url>${tawja.deploy.site.protocol}://${tawja.deploy.site.host}${tawja.deploy.webPath}/${tawja.deploy.envName}/${organization.domain}/project/website/twj-website-base</url>
+            <url>${tawja.deploy.site.protocol}://${tawja.deploy.site.host}${tawja.deploy.site.webPath}/${tawja.deploy.envName}/${organization.domain}/project/website/twj-website-base</url>
         </site>
         <snapshotRepository>
             <uniqueVersion>false</uniqueVersion>
