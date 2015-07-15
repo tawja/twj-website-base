@@ -1,15 +1,15 @@
 /* Override this file in sub projects to set some specific styles */
 
 header {
-    background-color: #053;
+    background-color: #073;
     color: #FFF;
 }
 
 h1.section, h2.section, h3.section, h4.section, h5.section, h6.section {
     color: #FFF;
-    background-color: #053;
+    background-color: #073;
 }
 
 h1.section, h2.section {
-    border-color: #053;
+    border-color: #073;
 }
