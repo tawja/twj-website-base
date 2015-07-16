@@ -9,7 +9,7 @@ module.exports = {
     },
     assemble: {
         files: ['<%= config.templates %>/**/*.{md,hbs,yml}', '<%= config.pages %>/*.{md,hbs}', '<%= config.articles %>/*.{md,hbs}'],
-        tasks: ['assemble']
+        tasks: ['assemble', 'sync:override']
     },
     less: {
         files: ['<%= config.assets %>/less/**/*.less'],
